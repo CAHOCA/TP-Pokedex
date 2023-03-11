@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView
 import co.cahoca.pokedex.adapter.PokemonListAdapter
 import co.cahoca.pokedex.data.DataSource
 import co.cahoca.pokedex.model.Pokemon
+
 import java.io.IOException
 
 const val TAG: String = "PokedexListActivity"
@@ -21,7 +22,6 @@ class PokedexListActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_pokedex_list)
-
 
         val recyclerView = findViewById<RecyclerView>(R.id.recycler_view)
         //recyclerView.setHasFixedSize(true)
