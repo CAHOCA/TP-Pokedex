@@ -24,6 +24,16 @@ class PokedexListActivity : AppCompatActivity() {
     companion object{
         fun getAssetsDrawable(context: Context, fileName:String): BitmapDrawable?{
             var bitmap: BitmapDrawable? = null
+            try
+            {
+                val inputStream = context.assets.open(fileName)
+                bitmap = BitmapDrawable(context.resources,
+                    BitmapFactory.decodeStream(inputStream))
+            } catch (e: IOException)
+            {
+                Log.e(TAG, "Error occurred retrieving file $fileName - ${e.message}")
+                e.printStackTrace()
+            }
             return bitmap
         }
     }
