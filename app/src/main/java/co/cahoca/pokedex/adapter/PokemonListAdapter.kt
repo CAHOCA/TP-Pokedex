@@ -1,6 +1,7 @@
 package co.cahoca.pokedex.adapter
 
 import android.content.Context
+import android.content.Intent
 import android.graphics.drawable.BitmapDrawable
 import android.view.LayoutInflater
 import android.view.View
@@ -9,6 +10,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import co.cahoca.pokedex.PokedexListActivity.Companion.getAssetsDrawable
+import co.cahoca.pokedex.PokemonCardActivity
 import co.cahoca.pokedex.R
 import co.cahoca.pokedex.model.Pokemon
 
@@ -47,6 +49,12 @@ class PokemonListAdapter(private val context: Context, private val dataset:List<
             holder.type2View.visibility = View.VISIBLE
         } else {
             holder.type2View.visibility = View.GONE
+        }
+
+        holder.imageView.setOnClickListener { _ ->
+            val intent = Intent(context, PokemonCardActivity::class.java)
+            intent.putExtra("pokemon", item)
+            context.startActivity(intent)
         }
     }
 }
