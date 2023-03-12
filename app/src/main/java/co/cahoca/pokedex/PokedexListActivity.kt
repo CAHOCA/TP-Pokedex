@@ -11,6 +11,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.widget.doOnTextChanged
 import androidx.recyclerview.widget.RecyclerView
 import co.cahoca.pokedex.adapter.PokemonListAdapter
+import co.cahoca.pokedex.data.DBHelper
 import co.cahoca.pokedex.data.DataSource
 import co.cahoca.pokedex.model.Pokemon
 import java.io.IOException
@@ -24,7 +25,8 @@ class PokedexListActivity : AppCompatActivity() {
         val recyclerView = findViewById<RecyclerView>(R.id.recycler_view)
         recyclerView.setHasFixedSize(true)
 
-        val dataset: List<Pokemon> = DataSource().loadPokemonMonsters()
+        //val dataset: List<Pokemon> = DataSource().loadPokemonMonsters()
+        val dataset: List<Pokemon> = DBHelper(this).getAllPokemons()
         recyclerView.adapter = PokemonListAdapter(this, dataset)
         val editText = findViewById<EditText>(R.id.pokedex_list_view_filter_text)
         val imageButton = findViewById<ImageButton>(R.id.pokedex_list_view_filter_clear)
