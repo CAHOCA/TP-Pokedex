@@ -5,6 +5,7 @@ import android.content.Context
 import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
+import co.cahoca.pokedex.PokedexListActivity
 import co.cahoca.pokedex.model.Pokemon
 import co.cahoca.pokedex.model.Type
 
@@ -73,7 +74,7 @@ class DBHelper(context: Context): SQLiteOpenHelper(context, DB_NAME, null, DB_VE
         return all
     }
 
-    fun getPokemonById(id: Int): Pokemon? {
+    fun getPokemonById(id: Int?): Pokemon? {
         val c = readableDatabase.query(
             POKEMON_TABLE,
             null,

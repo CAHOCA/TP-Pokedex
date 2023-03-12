@@ -12,7 +12,6 @@ import androidx.core.widget.doOnTextChanged
 import androidx.recyclerview.widget.RecyclerView
 import co.cahoca.pokedex.adapter.PokemonListAdapter
 import co.cahoca.pokedex.data.DBHelper
-import co.cahoca.pokedex.data.DataSource
 import co.cahoca.pokedex.model.Pokemon
 import java.io.IOException
 
@@ -41,6 +40,7 @@ class PokedexListActivity : AppCompatActivity() {
             }
         }
     }
+
 
     private fun refreshList(recyclerView: RecyclerView, filteredDataSet: List<Pokemon>) {
         recyclerView.adapter = PokemonListAdapter(this, filteredDataSet)
