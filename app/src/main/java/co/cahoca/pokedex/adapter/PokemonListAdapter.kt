@@ -38,8 +38,7 @@ class PokemonListAdapter(private val context: Context, private val dataset:List<
         holder.textView.text = "#$fullId ${item.name}"
         val imageDrawable: BitmapDrawable? = getAssetsDrawable(context, "$fullId.png")
         holder.imageView.setImageDrawable(imageDrawable)
-        val type1Drawable: BitmapDrawable? = getAssetsDrawable(context,
-            "${item.type1}.png")
+        val type1Drawable: BitmapDrawable? = getAssetsDrawable(context, "${item.type1}.png")
         holder.type1View.setImageDrawable(type1Drawable)
         if (item.type2 != null) {
             val type2Drawable: BitmapDrawable? =
@@ -53,7 +52,7 @@ class PokemonListAdapter(private val context: Context, private val dataset:List<
 
         holder.imageView.setOnClickListener { _ ->
             val intent = Intent(context, PokemonCardActivity::class.java)
-            intent.putExtra("pokemon", item)
+            intent.putExtra("pokemonId", item.id)
             context.startActivity(intent)
         }
     }

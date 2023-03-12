@@ -6,7 +6,9 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import co.cahoca.pokedex.PokedexListActivity.Companion.getAssetsDrawable
+import co.cahoca.pokedex.data.DBHelper
 import co.cahoca.pokedex.model.Pokemon
+
 
 class PokemonCardActivity: AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -15,12 +17,23 @@ class PokemonCardActivity: AppCompatActivity() {
         val bundle: Bundle? = intent.extras
         bundle?.let {
             bundle.apply {
-                val pokemon: Pokemon? = getParcelable("pokemon")
-                if (pokemon != null) {
-                    loadPokemon(pokemon)
-                } else {
-                    finish()
+                ;
+                val stringVariableName = bundle.get("pokemonId").toString()
+                val id =  stringVariableName.toInt()
+                try {
+                    val pokemon: Pokemon? = DBHelper(this@PokemonCardActivity).getPokemonById(id)
+                    println(pokemon)
+                    if (pokemon != null) {
+                        loadPokemon(pokemon)
+                    } else {
+                        finish()
+                    }
+                }   catch(e:NullPointerException){
+                    e.printStackTrace()
                 }
+
+
+
             }
         }
     }
@@ -47,3 +60,5 @@ class PokemonCardActivity: AppCompatActivity() {
         }
     }
 }
+
+
