@@ -1,3 +1,6 @@
+<p align="center">
+  <img src="./app/src/main/assets/Poké_Ball_icon.svg" width="256" alt="Pokémon Logo">
+</p>
 # 🎮 TP Mobility: Pokédex App  
 
 A fun **Android app** built with **Kotlin**, featuring the **first-generation Pokémon** list. Developed as an academic project.  
